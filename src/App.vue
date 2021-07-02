@@ -1,16 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <Form @submit="register($event)">
+    <Field name="login"></Field>
+  </Form>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { Field, Form } from 'vee-validate';
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
+    Form,
+    Field
+  },
+  setup() {
+    return {
+      register(user: { login: string }) {
+        console.log(user)
+      }
+    }
   }
 });
 </script>
